@@ -1,7 +1,7 @@
 import { Job } from "@/types/job";
 
 export const getJobs = async () => {
-  const res = await fetch("http://localhost:8000/jobs", {
+  const res = await fetch("https://jobify-back-end.onrender.com/jobs", {
     method: "GET",
   });
   const data: Job[] = await res.json();
@@ -12,7 +12,7 @@ export const getJobById = async (id: string) => {
   // Get toke of the user issued by clerk
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch(`http://localhost:8000/jobs/${id}`, {
+  const res = await fetch(`https://jobify-back-end.onrender.com/jobs/${id}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export const createJob = async ({
 
   // We pass the token to backend so clerk middleware verify if its a user or not
 
-  await fetch("http://localhost:8000/jobs", {
+  await fetch("https://jobify-back-end.onrender.com/jobs", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import { JobApplication } from "@/types/jobApplication";
 export const getJobApllicationsForJob = async (id: string) => {
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch(`http://localhost:8000/jobApplications?jobId=${id}`, {
+  const res = await fetch(`https://jobify-back-end.onrender.com/jobApplications?jobId=${id}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -16,7 +16,7 @@ export const getJobApllicationsForJob = async (id: string) => {
 export const getJobApplicationById = async (id: string) => {
   const token = await window.Clerk.session.getToken();
 
-  const res = await fetch(`http://localhost:8000/jobApplications/${id}`, {
+  const res = await fetch(`https://jobify-back-end.onrender.com/jobApplications/${id}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export const createJobApplication = async ({
 }) => {
   const token = await window.Clerk.session.getToken();
 
-  await fetch("http://localhost:8000/jobApplications", {
+  await fetch("https://jobify-back-end.onrender.com/jobApplications", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
